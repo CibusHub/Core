@@ -1,0 +1,22 @@
+{
+  "name": "core",
+  "version": "0.1.0",
+  "description": "Core TypeScript library for the CibusHub application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CibusHub/Core.git"
+  },
+  "keywords": [
+    "cibushub"
+  ],
+  "author": "Daniel Way",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CibusHub/Core/issues"
+  },
+  "homepage": "https://github.com/CibusHub/Core#readme"
+}
