@@ -1,9 +1,10 @@
 {
-  "name": "core",
+  "name": "@cibushub/core",
   "version": "0.1.0",
   "description": "Core TypeScript library for the CibusHub application.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/CibusHub/Core/issues"
   },
-  "homepage": "https://github.com/CibusHub/Core#readme"
+  "homepage": "https://github.com/CibusHub/Core#readme",
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
 }
