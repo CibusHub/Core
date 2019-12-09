@@ -1,4 +1,6 @@
 {
+  "include": [ "./src/**/*" ],
+  "exclude": [ "node_modules", "dist", "test" ],
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -6,10 +8,8 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./src",
     "strict": true,
     "moduleResolution": "node",
-    "baseUrl": "./",
     "esModuleInterop": true
   }
 }
