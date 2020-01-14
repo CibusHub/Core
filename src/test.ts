@@ -1,9 +1,9 @@
 export class Test {
   constructor(
-    private value: string
+    private value: string,
   ) {}
 
-  helloWorld(): string {
+  public helloWorld(): string {
     return `Hello world ${this.value}!`;
   }
 }

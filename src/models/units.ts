@@ -1,16 +1,16 @@
-import { Unit } from "./unit";
+import { Unit } from './unit';
 
 export const Units: Unit[] = [
   {
-    name: 'Gram',
     acronym: 'g',
+    name: 'Gram',
+    ratioToStandard: 1.0,
     type: 'weight',
-    ratioToStandard: 1.0
   },
   {
-    name: 'Liter',
     acronym: 'L',
-    type: "volume",
-    ratioToStandard: 1.0
-  }
+    name: 'Liter',
+    ratioToStandard: 1.0,
+    type: 'volume',
+  },
 ];
