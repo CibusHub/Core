@@ -21,7 +21,6 @@
     "url": "https://github.com/CibusHub/Core/issues"
   },
   "homepage": "https://github.com/CibusHub/Core#readme",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "devDependencies": {
     "@types/chai": "^4.2.7",
     "@types/mocha": "^5.2.7",
