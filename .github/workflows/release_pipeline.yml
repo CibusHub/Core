@@ -1,0 +1,87 @@
+name: Release pipeline
+
+on:
+  release:
+    types: [created]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for building
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript build
+      run: npm run build
+      env:
+        CI: true
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for testing
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript unit and coverage tests
+      run: npm run test
+      env:
+        CI: true
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for linting
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript linting
+      run: npm run lint
+      env:
+        CI: true
+
+  publish-npm:
+    needs: [ build, test, lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.1.0
+        with:
+          node-version: 12.x
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMPublishToken}}
+
+  publish-gpr:
+    needs: [ build, test, lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1.1.0
+        with:
+          node-version: 12.x
+          registry-url: https://npm.pkg.github.com/
+          scope: '@cibushub'
+      - run: npm ci
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GHPublishToken}}

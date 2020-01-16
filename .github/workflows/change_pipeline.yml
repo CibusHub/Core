@@ -1,0 +1,56 @@
+name: Change pipeline
+
+on: push
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for building
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript build
+      run: npm run build
+      env:
+        CI: true
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for testing
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript unit and coverage tests
+      run: npm run test
+      env:
+        CI: true
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js 12.x for linting
+      uses: actions/setup-node@v1.1.0
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm ci
+      env:
+        CI: true
+    - name: Execute TypeScript linting
+      run: npm run lint
+      env:
+        CI: true
