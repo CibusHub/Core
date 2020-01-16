@@ -6,3 +6,6 @@ src
 test
 .nycrc
 tsconfig.json
+pnpm-*
+.github
+tslint.json

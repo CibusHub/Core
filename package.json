@@ -1,6 +1,6 @@
 {
   "name": "@cibushub/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core TypeScript library for the CibusHub application.",
   "main": "dist/index.js",
   "scripts": {
